@@ -30,6 +30,18 @@ package object oculus {
       val X_PressEnded: String = "X press ended"
       val Y_PressBegan: String = "Y press began"
       val Y_PressEnded: String = "Y press ended"
+      val X_TouchBegan: String = "X touch began"
+      val X_TouchEnded: String = "X touch ended"
+      val Y_TouchBegan: String = "Y touch began"
+      val Y_TouchEnded: String = "Y touch ended"
+      val Thumbstick_PressBegan: String = "thumbstick press began"
+      val Thumbstick_PressEnded: String = "thumbstick press ended"
+      val Thumbstick_TouchBegan: String = "thumbstick touch began"
+      val Thumbstick_TouchEnded: String = "thumbstick touch ended"
+      //val ThumbRest_TouchBegan: String = "thumbrest touch began"
+      //val ThumbRest_TouchEnded: String = "thumbrest touch ended"
+      //val Menu_PressBegan: String = "menu press began"
+      //val Menu_PressEnded: String = "menu press ended"
     }
 
     object Right {
@@ -38,6 +50,16 @@ package object oculus {
       val A_PressEnded: String = "A press ended"
       val B_PressBegan: String = "B press began"
       val B_PressEnded: String = "B press ended"
+      val A_TouchBegan: String = "A touch began"
+      val A_TouchEnded: String = "A touch ended"
+      val B_TouchBegan: String = "B touch began"
+      val B_TouchEnded: String = "B touch ended"
+      val Thumbstick_PressBegan: String = "thumbstick press began"
+      val Thumbstick_PressEnded: String = "thumbstick press ended"
+      val Thumbstick_TouchBegan: String = "thumbstick touch began"
+      val Thumbstick_TouchEnded: String = "thumbstick touch ended"
+      //val ThumbRest_TouchBegan: String = "thumbrest touch began"
+      //val ThumbRest_TouchEnded: String = "thumbrest touch ended"
     }
 
     // These touch events for Oculus Controls are not registering. (Firefox 61.0.1)
@@ -49,5 +71,8 @@ package object oculus {
 
   def primaryValue(target: Any): Double = target
     .asInstanceOf[js.Dynamic].getButton(1).value.asInstanceOf[Double]
+
+  def isTouched(target: Any): Boolean = target
+    .asInstanceOf[js.Dynamic].getButton(1).isTouched.asInstanceOf[Boolean]
 
 }

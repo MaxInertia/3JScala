@@ -24,12 +24,15 @@ object Dat {
   }
   @js.native
   trait GUI extends Object3D {
-    def add(something: js.Object): Unit = js.native
-    def add(something: js.Object, id: String): Unit = js.native
+    def add(something: js.Object): GuiComponent = js.native
+    def add(something: js.Object, id: String): GuiComponent = js.native
+    def add(something: js.Object, id: String, options: js.Array[String]): GuiComponent = js.native // For drop-downs
     def add(something: js.Object, id: String, min: Double, max: Double): GuiSlider = js.native
     def addFolder(folder: GUI): GUI = js.native
+    def addCheckbox(something: js.Object, id: String): GuiComponent = js.native
     def addButton(fn: js.Function, id: String = "Button"): Unit = js.native
     def addButton(id: String, fn: js.Function): Unit = js.native
+    def addDropdown(something: js.Object, id: String, options: js.Array[String]): GuiComponent = js.native
     def open(): Unit = js.native
     def close(): Unit = js.native
     def removeFolder(gui: GUI): Unit = js.native
@@ -43,14 +46,22 @@ object Dat {
     def step(n: Double): GuiSlider = js.native
     def updateValueLabel(label: String): Unit = js.native
     def updateObject(obj: js.Any): Unit = js.native
+    def updateSlider():Unit = js.native
   }
+
+  @js.native
+  trait GuiCheckbox extends GuiComponent {}
 
   @js.native
   trait GuiButton extends GuiComponent {}
 
   @js.native
+  trait GuiDropdown extends GuiComponent {}
+
+  @js.native
   trait GuiComponent extends Object3D {
     def name(name: String): GuiSlider = js.native
+    def onChange(callback: js.Function): GuiComponent = js.native
   }
 
   @js.native

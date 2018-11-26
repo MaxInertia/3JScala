@@ -26,7 +26,9 @@ private[vrdv] class ViewManager(mc: RenderRequirements) extends SuppliesRenderer
 
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.devicePixelRatio = window.devicePixelRatio
-  //renderer.vr.enabled = true
+
+  //Comment out the next line to use keyboard controls in browser - VR will not work
+  renderer.vr.enabled = true
   renderer.vr.setAnimationLoop(renderVR)
   dom.window.requestAnimationFrame(renderNonVR)
 
